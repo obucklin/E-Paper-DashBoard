@@ -1,18 +1,21 @@
+substitutions:
+  name: esphome-web-380994
+  friendly_name: ESPHome Display
+
 esphome:
-  name: e-paper-dashboard
-  friendly_name: E-Paper Dashboard
-  on_boot:
-    then:
-      - switch.turn_on: display_power
-      - script.execute: update_screen
-  on_shutdown:
-    then:
-      - switch.turn_off: display_power
+  name: ${name}
+  friendly_name: ${friendly_name}
+  min_version: 2024.6.0
+  name_add_mac_suffix: false
+  project:
+    name: esphome.web
+    version: dev
 
 esp32:
-  board: featheresp32
+  board: esp32dev
   framework:
     type: arduino
+    platform_version: 1.0.2
 
 # Enable logging
 logger:
@@ -20,10 +23,7 @@ logger:
 # Enable Home Assistant API
 api:
   encryption:
-    key: "yourkey"
-
-ota:
-  password: "yourpassword"
+    key: "4uWorxoj+BqToGW+dQFZzsch4G/GvWHQi7Hm/4px0J8="
 
 wifi:
   ssid: !secret wifi_ssid
@@ -240,7 +240,7 @@ display:
     busy_pin: 
       number: GPIO19
       inverted: true
-    reset_pin: GPIO18
+    reset_pin: GPIO14
     reset_duration: 2ms
     model: 7.50inV2
     id: screen
