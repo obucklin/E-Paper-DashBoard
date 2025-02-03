@@ -60,7 +60,7 @@ script:
 
 
 display:
-  - platform: waveshare_epaper
+  - platform: 
     cs_pin: GPIO22
     dc_pin: GPIO23
     busy_pin: 
@@ -71,7 +71,6 @@ display:
     model: 7.50inV2
     id: screen
     update_interval: 60s
+    show_test_card: true
     lambda: |-
-      it.printf(20, 170, id(tiny),"Front:");
-
-      it.print(100, 100, id(tiny), COLOR_OFF, TextAlign::TOP_LEFT, "ESPHome");
+    
